@@ -1,0 +1,2 @@
+class Astroturf < ApplicationRecord
+end
