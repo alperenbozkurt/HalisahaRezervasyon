@@ -9,9 +9,17 @@
   </head>
 
   <body>
-    <% flash.each do |name, msg| -%>
+    <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name %>
     <% end %>
     <%= yield %>
+
+    <% if current_user.present? %>
+    <%= current_user.email + ' ile giriş yapıldı..' %>
+    <%= link_to 'Çıkış Yap', destroy_user_session_path, method: :delete %>
+    <% else %>
+    <%= link_to 'Giriş yap', new_user_session_path %>
+    <%= link_to 'Kaydol', new_user_registration_path %>
+    <% end %>
   </body>
 </html>
