@@ -4,4 +4,5 @@ class Astroturf < ApplicationRecord
   validates :city, presence: true
   validates :info, presence: true
   validates :phone, numericality: true
+  has_many :comments
 end

@@ -1,0 +1,5 @@
+<%= form_for([@astroturf, @astroturf.comments.build]) do |f| %>
+  <%= f.label 'Yorum Yaz' %>
+  <%= f.text_field :content %>
+  <%= f.submit 'Gönder' %>
+<% end %>

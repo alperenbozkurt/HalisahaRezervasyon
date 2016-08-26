@@ -21,11 +21,11 @@ class AstroturvesController < ApplicationController
   end
 
   def show
-
+    @comments = @astroturf.comments.order("created_at DESC")
   end
 
   def edit
-    
+
   end
 
   def update

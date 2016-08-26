@@ -1,0 +1,7 @@
+<% @comments.each do |comment| %>
+  <b><%= comment.user.email %> : </b>
+  <%= comment.content %>
+  <% if current_user.present? and current_user.id == comment.user.id %>
+  <%= link_to 'Sil', [comment.astroturf,comment], method: :delete  %>
+  <% end %><br>
+<% end %>

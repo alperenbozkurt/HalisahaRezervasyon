@@ -10,3 +10,7 @@
 <%= @astroturf.instagram %><br>
 <%= link_to 'Düzenle', edit_astroturf_path %><br>
 <%= link_to 'Sil', astroturf_path, method: :delete %><br>
+<%= render 'comments/comments' %>
+<% if current_user.present? and %>
+<%= render 'comments/form' %>
+<% end %>
