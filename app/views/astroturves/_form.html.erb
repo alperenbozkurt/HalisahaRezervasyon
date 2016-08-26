@@ -1,3 +1,6 @@
+<% @astroturf.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+<% end %>
 <%= form_for @astroturf do |f| %>
 <%= f.label 'Adı : ' %>
 <%= f.text_field :name %><br>
