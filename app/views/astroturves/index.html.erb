@@ -1,9 +1,12 @@
-<h1>Halı Sahalar</h1>
+<h1>Halı Sahalar</h1><h2><%= link_to 'Yeni Halısaha ekle', new_astroturf_path %></h2>
 <% @astroturves.each do |astroturf|  %>
-<b><%= astroturf.name %><br></b>
+<b><%= link_to astroturf.name, astroturf_path(astroturf) %><br></b>
 <%= astroturf.address %><br>
 <%= astroturf.city %><br>
 <%= astroturf.info %><br>
 <%= astroturf.phone %><br>
+<%= astroturf.map %><br>
 <%= astroturf.facebook %><br>
+<%= astroturf.twitter %><br>
+<%= astroturf.instagram %><br>
 <% end %>

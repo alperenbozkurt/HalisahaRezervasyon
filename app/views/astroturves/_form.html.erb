@@ -1,0 +1,21 @@
+<%= form_for @astroturf do |f| %>
+<%= f.label 'Adı : ' %>
+<%= f.text_field :name %><br>
+<%= f.label 'Adres : ' %>
+<%= f.text_field :address %><br>
+<%= f.label 'Şehir : ' %>
+<%= f.text_field :city %><br>
+<%= f.label 'Bilgi : ' %>
+<%= f.text_area :info %><br>
+<%= f.label 'Phone : ' %>
+<%= f.telephone_field :phone %><br>
+<%= f.label 'Harita : ' %>
+<%= f.text_area :map %><br>
+<%= f.label 'Facebook : ' %>
+<%= f.text_field :facebook %><br>
+<%= f.label 'Twitter : ' %>
+<%= f.text_field :twitter %><br>
+<%= f.label 'İnstagram : ' %>
+<%= f.text_field :instagram %><br>
+<%= f.button :Gönder %><br>
+<% end  %>
