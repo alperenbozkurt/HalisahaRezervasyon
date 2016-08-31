@@ -8,6 +8,7 @@
 <%= @astroturf.facebook %><br>
 <%= @astroturf.twitter %><br>
 <%= @astroturf.instagram %><br>
+<%= @astroturf.services.collect {|x| x.name }.join(", ") %><br>
 <%= link_to 'Düzenle', edit_astroturf_path %><br>
 <%= link_to 'Sil', astroturf_path, method: :delete %><br>
 <%= render 'comments/comments' %>

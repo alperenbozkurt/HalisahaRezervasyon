@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :astroturves do
     resources :comments
   end
+  resources :services
   root 'astroturves#index'
 end

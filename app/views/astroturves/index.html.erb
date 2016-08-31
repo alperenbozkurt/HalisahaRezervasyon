@@ -9,4 +9,5 @@
 <%= astroturf.facebook %><br>
 <%= astroturf.twitter %><br>
 <%= astroturf.instagram %><br>
+<%= astroturf.services.collect {|x| x.name }.join(", ") %><br>
 <% end %>

@@ -20,5 +20,6 @@
 <%= f.text_field :twitter %><br>
 <%= f.label 'İnstagram : ' %>
 <%= f.text_field :instagram %><br>
+<%= f.collection_check_boxes(:service_ids , @services, :id, :name) %><br>
 <%= f.button :Gönder %><br>
 <% end  %>
