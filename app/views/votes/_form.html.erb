@@ -1,0 +1,7 @@
+<%= form_for [@astroturf, @vote] do |f| %>
+  <% 5.times do |i| %>
+    <%= f.radio_button :rating, i+1 %>
+  <% end %>
+  <%= f.submit :Gönder %>
+<% end %>
+<%= @astroturf.votes.average(:rating) %>

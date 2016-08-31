@@ -6,4 +6,5 @@ class Astroturf < ApplicationRecord
   validates :phone, numericality: true
   has_many :comments
   has_and_belongs_to_many :services
+  has_many :votes
 end

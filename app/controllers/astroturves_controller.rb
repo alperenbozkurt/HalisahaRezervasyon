@@ -25,6 +25,13 @@ class AstroturvesController < ApplicationController
 
   def show
     @comments = @astroturf.comments.order("created_at DESC")
+    if current_user.present?
+      if @astroturf.votes.where(user_id: current_user.id).any?
+      		@vote = @astroturf.votes.where(user_id: current_user.id).first
+    		else
+      		@vote = @astroturf.votes.build
+    		end
+    end
   end
 
   def edit

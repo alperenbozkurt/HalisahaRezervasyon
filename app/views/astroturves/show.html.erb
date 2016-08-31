@@ -9,9 +9,11 @@
 <%= @astroturf.twitter %><br>
 <%= @astroturf.instagram %><br>
 <%= @astroturf.services.collect {|x| x.name }.join(", ") %><br>
+
 <%= link_to 'Düzenle', edit_astroturf_path %><br>
 <%= link_to 'Sil', astroturf_path, method: :delete %><br>
 <%= render 'comments/comments' %>
-<% if current_user.present? and %>
-<%= render 'comments/form' %>
+<% if current_user.present? %>
+  <%= render 'votes/form' %>
+  <%= render 'comments/form' %>
 <% end %>
