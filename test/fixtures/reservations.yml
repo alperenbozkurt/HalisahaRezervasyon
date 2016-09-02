@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  astroturf: one
+  date: 2016-09-01 20:50:30
+
+two:
+  user: two
+  astroturf: two
+  date: 2016-09-01 20:50:30

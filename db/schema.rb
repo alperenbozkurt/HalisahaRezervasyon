@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831180013) do
+ActiveRecord::Schema.define(version: 20160901175030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20160831180013) do
     t.datetime "updated_at",   null: false
     t.index ["astroturf_id"], name: "index_comments_on_astroturf_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "astroturf_id"
+    t.datetime "date"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["astroturf_id"], name: "index_reservations_on_astroturf_id", using: :btree
+    t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end
 
   create_table "services", force: :cascade do |t|
@@ -80,6 +90,8 @@ ActiveRecord::Schema.define(version: 20160831180013) do
 
   add_foreign_key "comments", "astroturves"
   add_foreign_key "comments", "users"
+  add_foreign_key "reservations", "astroturves"
+  add_foreign_key "reservations", "users"
   add_foreign_key "votes", "astroturves"
   add_foreign_key "votes", "users"
 end

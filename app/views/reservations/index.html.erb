@@ -1,0 +1,9 @@
+<h1>Yaptıpım rezervasyonlar</h1>
+<% @reservations.each do |reservation|  %>
+<%= reservation.astroturf.name %><br>
+<%= reservation.date %><br>
+<%= link_to :Düzenle, astroturf_path(reservation.astroturf) %><br>
+<%= link_to :Sil, reservation_path(reservation), method: :delete %><br>
+
+<br>
+<% end %>

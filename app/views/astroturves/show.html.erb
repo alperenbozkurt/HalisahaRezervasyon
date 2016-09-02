@@ -16,4 +16,8 @@
 <% if current_user.present? %>
   <%= render 'votes/form' %>
   <%= render 'comments/form' %>
+  <div style="background-color:yellow;height:80px;width:500px;">
+    <%= render 'reservations/form' %>
+  </div>
+
 <% end %>

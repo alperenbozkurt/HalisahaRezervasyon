@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :astroturves do
     resources :comments
     resources :votes
+    resources :reservations, only: [:create, :update]
   end
   resources :services
+  resources :reservations, only: [:index, :destroy]
 end
