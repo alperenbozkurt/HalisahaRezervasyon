@@ -8,18 +8,22 @@ class VotesController < ApplicationController
     @vote.user = current_user
 
     if @vote.save
-      redirect_to @astroturf, notice: "Değerlendirmeniz kaydedildi"
+      flash[:success] =  'Değerlendirmeniz kaydedildi'
+      redirect_to @astroturf
     else
-      redirect_to @astroturf, notice: "Hata oluştu, Değerlendirmeniz kaydedilemedi"
+      flash[:danger] =  'Hata oluştu, Değerlendirmeniz kaydedilemedi'
+      redirect_to @astroturf
     end
   end
 
   def update
     @vote = Vote.find(params[:id])
     if @vote.update(rating: params[:vote][:rating])
-      redirect_to @astroturf, notice: "Değerlendirmeniz güncellendi."
+      flash[:success] =  'Değerlendirmeniz güncellendi.'
+      redirect_to @astroturf
     else
-      redirect_to @astroturf, notice: "Hata oluştu, değerlendirmeniz güncellenemedi."
+      flash[:danger] =  'Hata oluştu, değerlendirmeniz güncellenemedi.'
+      redirect_to @astroturf
     end
   end
 

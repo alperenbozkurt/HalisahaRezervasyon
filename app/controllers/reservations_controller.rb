@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
       flash[:success] =  'Rezervasyonunuz başarılı bir şekilde olıuşturuldu..'
       redirect_to reservations_path
     else
-      flash[:error] =  'Rezervasyon yapılamadı'
+      flash[:danger] =  'Rezervasyon yapılamadı'
       redirect_to reservations_path
     end
 
@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
       flash[:success] =  'Rezervasyonunuz başarılı bir şekilde güncellendi..'
       redirect_to reservations_path
     else
-      flash[:error] =  'Rezervasyonunuz güncellenemedi..'
+      flash[:danger] =  'Rezervasyonunuz güncellenemedi..'
       redirect_to reservations_path
     end
   end
@@ -33,7 +33,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    flash[:error] =  'Rezervasyonunuz başarıyla silindi..'
+    flash[:danger] =  'Rezervasyonunuz başarıyla silindi..'
     redirect_to reservations_path
   end
 end

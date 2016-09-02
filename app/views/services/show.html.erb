@@ -1,2 +1,16 @@
-<h1><%= @service.name %> servisine sahip halısahalar</h1>
-<%= @service.astroturves.collect {|x| x.name }.join("</ br>") %></br>
+<h1><b><%= @service.name %> servisine sahip halısahalar</b></h1>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-success" >
+      <% @service.astroturves.each do |astroturf| %>
+      <div class="panel panel-success" style="width:300px; float:left; margin:5px;">
+        <div class="panel-heading"><b><%= link_to astroturf.name, astroturf_path(astroturf) %><br></b></div>
+        <div class="panel-body">
+          <b>Şehir : </b><%= astroturf.city %><br>
+          <b>Hizmetler : </b><%= astroturf.services.collect {|x| x.name }.join(", ") %><br>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

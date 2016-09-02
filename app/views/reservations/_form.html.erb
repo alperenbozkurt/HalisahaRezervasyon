@@ -1,4 +1,13 @@
-<%= form_for [@astroturf, @reservation] do |f| %>
-<%= f.datetime_field :date %><br>
-<%= f.button :Ekle %><br>
-<% end  %>
+<div class="col-sm-3">
+  <div class="panel panel-success" >
+    <div class="panel-heading">
+      <b>Rezervasyon</b>
+    </div>
+    <div class="panel-body">
+      <%= form_for [@astroturf, @reservation] do |f| %>
+      <%= f.datetime_field :date %><br><br>
+      <%= f.button :Ekle %><br>
+      <% end  %>
+    </div>
+  </div>
+</div>

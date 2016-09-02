@@ -1,6 +1,17 @@
-<h1>Hizmetler Listesi</h1>
-<%  @services.each do |s| %>
-<%= link_to s.name, service_path(s) %>
-<%= link_to 'Sil', service_path(s), method: :delete %></br></br>
-<% end %>
-</br></br>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-success" >
+      <div class="panel-heading"><b>Hizmetler Listesi</b></div>
+      <div class="panel-body">
+        <table class="table">
+          <%  @services.each do |s| %>
+            <tr>
+              <td><%= link_to s.name, service_path(s) %></td>
+              <td><%= link_to 'Sil', service_path(s), method: :delete %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -20,7 +20,7 @@ class ServicesController < ApplicationController
       flash[:success] =  'Servis başarılı bir şekilde oluşturuldu..'
       redirect_to services_path
     else
-      flash[:error] =  'Servis Oluşturulamadı'
+      flash[:danger] =  'Servis Oluşturulamadı'
       render :new
     end
   end

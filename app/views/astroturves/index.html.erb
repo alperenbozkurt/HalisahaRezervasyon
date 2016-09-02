@@ -1,13 +1,10 @@
-<h1>Halı Sahalar</h1><h2><%= link_to 'Yeni Halısaha ekle', new_astroturf_path %></h2>
+<h1>Halı Sahalar</h1>
 <% @astroturves.each do |astroturf|  %>
-<b><%= link_to astroturf.name, astroturf_path(astroturf) %><br></b>
-<%= astroturf.address %><br>
-<%= astroturf.city %><br>
-<%= astroturf.info %><br>
-<%= astroturf.phone %><br>
-<%= astroturf.map %><br>
-<%= astroturf.facebook %><br>
-<%= astroturf.twitter %><br>
-<%= astroturf.instagram %><br>
-<%= astroturf.services.collect {|x| x.name }.join(", ") %><br>
+  <div class="panel panel-success" style="width:300px; float:left; margin:5px;">
+    <div class="panel-heading"><b><%= link_to astroturf.name, astroturf_path(astroturf) %><br></b></div>
+    <div class="panel-body">
+      <b>Şehir : </b><%= astroturf.city %><br>
+      <b>Verdiği Hizmetler : </b><%= astroturf.services.collect {|x| x.name }.join(", ") %><br>
+    </div>
+  </div>
 <% end %>

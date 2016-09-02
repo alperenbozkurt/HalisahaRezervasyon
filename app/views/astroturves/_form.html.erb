@@ -2,24 +2,39 @@
     <li><%= message %></li>
 <% end %>
 <%= form_for @astroturf do |f| %>
-<%= f.label 'Adı : ' %>
-<%= f.text_field :name %><br>
-<%= f.label 'Adres : ' %>
-<%= f.text_field :address %><br>
-<%= f.label 'Şehir : ' %>
-<%= f.text_field :city %><br>
-<%= f.label 'Bilgi : ' %>
-<%= f.text_area :info %><br>
-<%= f.label 'Phone : ' %>
-<%= f.telephone_field :phone %><br>
-<%= f.label 'Harita : ' %>
-<%= f.text_area :map %><br>
-<%= f.label 'Facebook : ' %>
-<%= f.text_field :facebook %><br>
-<%= f.label 'Twitter : ' %>
-<%= f.text_field :twitter %><br>
-<%= f.label 'İnstagram : ' %>
-<%= f.text_field :instagram %><br>
-<%= f.collection_check_boxes(:service_ids , @services, :id, :name) %><br>
-<%= f.button :Gönder %><br>
-<% end  %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <% if @astroturf.id == nil %>
+        <b><%= 'Yeni Halısaha Ekle' %></b>
+        <% else %>
+        <%= @astroturf.name + '\' yi Düzenle' %>
+        <% end %>
+      </div>
+      <div class="panel-body">
+        <%= f.label 'Adı : ' %>
+        <%= f.text_field :name %><br>
+        <%= f.label 'Adres : ' %>
+        <%= f.text_field :address %><br>
+        <%= f.label 'Şehir : ' %>
+        <%= f.text_field :city %><br>
+        <%= f.label 'Bilgi : ' %>
+        <%= f.text_area :info %><br>
+        <%= f.label 'Phone : ' %>
+        <%= f.telephone_field :phone %><br>
+        <%= f.label 'Harita : ' %>
+        <%= f.text_area :map %><br>
+        <%= f.label 'Facebook : ' %>
+        <%= f.text_field :facebook %><br>
+        <%= f.label 'Twitter : ' %>
+        <%= f.text_field :twitter %><br>
+        <%= f.label 'İnstagram : ' %>
+        <%= f.text_field :instagram %><br>
+        <%= f.collection_check_boxes(:service_ids , @services, :id, :name) %><br>
+        <%= f.button :Gönder %><br>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

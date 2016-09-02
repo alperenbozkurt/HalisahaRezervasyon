@@ -1,7 +1,20 @@
-<%= form_for [@astroturf, @vote] do |f| %>
-  <% 5.times do |i| %>
-    <%= f.radio_button :rating, i+1 %>
-  <% end %>
-  <%= f.submit :Gönder %>
-<% end %>
-<%= @astroturf.votes.average(:rating) %>
+<div class="col-sm-3">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <b>Oy Ver</b>
+    </div>
+    <div class="panel-body">
+      <%= form_for [@astroturf, @vote] do |f| %>
+        <% 5.times do |i| %>
+          <%= f.radio_button :rating, i+1 %>
+        <% end %>
+        <%= f.submit 'Oy ver' %>
+      <% end %>
+      <hr>
+      <p>
+        <b>Ortalama Oy : </b>
+      </p>
+      <%= @astroturf.votes.average(:rating) %>
+    </div>
+  </div>
+</div>

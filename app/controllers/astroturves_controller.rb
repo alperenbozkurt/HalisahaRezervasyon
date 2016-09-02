@@ -17,7 +17,7 @@ class AstroturvesController < ApplicationController
       flash[:success] =  'Halısaha başarılı bir şekilde oluşturuldu..'
       redirect_to astroturf_path(@astroturf)
     else
-      flash[:error] =  'Halısaha Oluşturulamadı'
+      flash[:danger] =  'Halısaha Oluşturulamadı'
       load_services
       render :new
     end
@@ -52,7 +52,7 @@ class AstroturvesController < ApplicationController
       flash[:success] = 'Halısaha başarılı bir şekilde güncellendi..'
       redirect_to astroturf_path(@astroturf)
     else
-      flash[:error] = 'Halısaha Güncellenemedi.'
+      flash[:danger] = 'Halısaha Güncellenemedi.'
       load_services
       render :edit
     end

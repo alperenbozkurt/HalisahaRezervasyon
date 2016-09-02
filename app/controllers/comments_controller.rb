@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
 
   def comment_owner
     unless current_user.id == @comment.user_id
-      flash[:error] = 'Bu Yorumu silme yetkin yok..'
+      flash[:danger] = 'Bu Yorumu silme yetkin yok..'
       redirect_to @astroturf
     end
   end

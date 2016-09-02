@@ -1,23 +1,25 @@
-<h1>Halı Sahalar</h1>
-<b><%= @astroturf.name %><br></b>
-<%= @astroturf.address %><br>
-<%= @astroturf.city %><br>
-<%= @astroturf.info %><br>
-<%= @astroturf.phone %><br>
-<%= @astroturf.map %><br>
-<%= @astroturf.facebook %><br>
-<%= @astroturf.twitter %><br>
-<%= @astroturf.instagram %><br>
-<%= @astroturf.services.collect {|x| x.name }.join(", ") %><br>
-
-<%= link_to 'Düzenle', edit_astroturf_path %><br>
-<%= link_to 'Sil', astroturf_path, method: :delete %><br>
-<%= render 'comments/comments' %>
-<% if current_user.present? %>
-  <%= render 'votes/form' %>
-  <%= render 'comments/form' %>
-  <div style="background-color:yellow;height:80px;width:500px;">
-    <%= render 'reservations/form' %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <b><%= link_to @astroturf.name, astroturf_path(@astroturf) %></b>
+        (<%= link_to 'Düzenle', edit_astroturf_path %>)
+        (<%= link_to 'Sil', astroturf_path, method: :delete %>)
+      </div>
+      <div class="panel-body">
+        <b>Address : </b><%= @astroturf.address %><br>
+        <b>Şehir : </b><%= @astroturf.city %><br>
+        <b>Ek Bilgi : </b><%= @astroturf.info %><br>
+        <b>Telefon : </b><%= @astroturf.phone %><br>
+        <b>Hizmetler : </b><%= @astroturf.services.collect {|x| x.name }.join(", ") %><br>
+      </div>
+    </div>
   </div>
-
-<% end %>
+</div>
+<div class="row">
+  <%= render 'comments/comments' %>
+  <% if current_user.present? %>
+    <%= render 'votes/form' %>
+    <%= render 'reservations/form' %>
+  <% end %>
+</div>

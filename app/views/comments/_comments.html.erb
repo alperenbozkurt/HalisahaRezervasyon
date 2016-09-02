@@ -1,7 +1,23 @@
-<% @comments.each do |comment| %>
-  <b><%= comment.user.email %> : </b>
-  <%= comment.content %>
-  <% if current_user.present? and current_user.id == comment.user.id %>
-  <%= link_to 'Sil', [comment.astroturf,comment], method: :delete  %>
-  <% end %><br>
-<% end %>
+<div class="col-sm-6">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <b>Yorumlar</b>
+    </div>
+    <div class="panel-body">
+      <% @comments.each do |comment| %>
+        <div class="media">
+          <div class="media-body">
+            <h5 class="media-heading"><b><%= comment.user.email %> : </b><h5>
+            <%= comment.content %>
+            <% if current_user.present? and current_user.id == comment.user.id %>
+            <small><%= link_to 'x', [comment.astroturf,comment], method: :delete  %></small>
+            <% end %>
+          </div>
+        </div>
+      <% end %><hr>
+      <% if current_user.present? %>
+        <%= render 'comments/form' %>
+      <% end %>
+    </div>
+  </div>
+</div>

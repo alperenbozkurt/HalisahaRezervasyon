@@ -1,5 +1,14 @@
-<%= form_for @service do |f| %>
-<%= f.label 'Adı : ' %>
-<%= f.text_field :name %><br>
-<%= f.button :Ekle %><br>
-<% end  %>
+<div class="col-sm-4">
+  <div class="panel panel-success" >
+    <div class="panel-heading">
+      <b>Hizmet Ekle</b>
+    </div>
+    <div class="panel-body">
+      <%= form_for @service do |f| %>
+      <%= f.label 'Adı : ' %>
+      <%= f.text_field :name %>
+      <%= f.button :Ekle %>
+      <% end  %>
+    </div>
+  </div>
+</div>
