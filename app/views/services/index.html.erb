@@ -7,7 +7,7 @@
           <%  @services.each do |s| %>
             <tr>
               <td><%= link_to s.name, service_path(s) %></td>
-              <% if current_user.admin %>
+              <% if current_user.present? and current_user.admin %>
                 <td><%= link_to 'Sil', service_path(s), method: :delete %></td>
               <% end %>
             </tr>
