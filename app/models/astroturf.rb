@@ -4,8 +4,8 @@ class Astroturf < ApplicationRecord
   validates :city, presence: true
   validates :info, presence: true
   validates :phone, numericality: true
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_and_belongs_to_many :services
-  has_many :votes
-  has_many :reservation
+  has_many :votes, dependent: :destroy
+  has_many :reservation, dependent: :destroy
 end
