@@ -1,8 +1,11 @@
 class AstroturvesController < ApplicationController
+
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_astroturf, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user!, except: [:show, :index]
+
   def index
     @astroturves = Astroturf.all
-
   end
 
   def new
@@ -76,5 +79,9 @@ class AstroturvesController < ApplicationController
 
   def load_services
     @services = Service.all
+  end
+
+  def authorize_user!
+    redirect_to root_path, notice: "Bu sayfayı sadece yöneticiler görebilir." unless current_user.admin
   end
 end

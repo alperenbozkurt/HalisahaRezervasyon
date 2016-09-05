@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :astroturf_find
   before_action :comment_find, only: [:destroy]
-  before_action :comment_owner, only: [:destroy]
+  before_action :comment_owner!, only: [:destroy]
+
   def create
     @comment = @astroturf.comments.create(params[:comment].permit(:content))
     @comment.user_id = current_user.id
@@ -15,7 +17,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-
     @comment.destroy
     flash[:success] = 'Yorumunuz başarılı bir şekilde silindi..'
     redirect_to astroturf_path(@astroturf)
@@ -31,7 +32,7 @@ class CommentsController < ApplicationController
     @comment = @astroturf.comments.find(params[:id])
   end
 
-  def comment_owner
+  def comment_owner!
     unless current_user.id == @comment.user_id
       flash[:danger] = 'Bu Yorumu silme yetkin yok..'
       redirect_to @astroturf

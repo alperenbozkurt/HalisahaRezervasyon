@@ -3,8 +3,10 @@
     <div class="panel panel-success">
       <div class="panel-heading">
         <b><%= link_to @astroturf.name, astroturf_path(@astroturf) %></b>
+        <% if current_user.present? and current_user.admin %>
         (<%= link_to 'Düzenle', edit_astroturf_path %>)
         (<%= link_to 'Sil', astroturf_path, method: :delete %>)
+        <% end %>
       </div>
       <div class="panel-body">
         <b>Address : </b><%= @astroturf.address %><br>
