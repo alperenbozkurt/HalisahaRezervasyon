@@ -1,5 +1,8 @@
 class ServicesController < ApplicationController
+
+  before_action :authenticate_user!, except: [:index]
   before_action :set_service, only: [:show, :destroy]
+  before_action :authorize_user!, except: [:index]
 
   def index
     @services = Service.all
@@ -38,5 +41,8 @@ class ServicesController < ApplicationController
   end
   def set_service
     @service = Service.find(params[:id])
+  end
+  def authorize_user!
+    redirect_to root_path, notice: "Bu sayfayı sadece yöneticiler görebilir." unless current_user.admin
   end
 end

@@ -1,5 +1,8 @@
 class VotesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_astroturf
+  before_action :set_vote, only: [:update]
+  before_action :authorize_user!, only: [:update]
   def create
 
     @vote = @astroturf.votes.new
@@ -17,7 +20,6 @@ class VotesController < ApplicationController
   end
 
   def update
-    @vote = Vote.find(params[:id])
     if @vote.update(rating: params[:vote][:rating])
       flash[:success] =  'Değerlendirmeniz güncellendi.'
       redirect_to @astroturf
@@ -29,7 +31,16 @@ class VotesController < ApplicationController
 
 
   private
+
   def set_astroturf
     @astroturf = Astroturf.find(params[:astroturf_id])
+  end
+
+  def set_vote
+    @vote = Vote.find(params[:id])
+  end
+
+  def authorize_user!
+    redirect_to root_path, notice: "Sadece kendi oyunu değiştirebilirsin." unless current_user.id == @vote.user_id
   end
 end
